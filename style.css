@@ -138,4 +138,71 @@
       .dropdown-content li a:hover {
         background-color: #f1f1f1;
       }
+
+      header .header-login {
+
+        margin-bottom: 50%;
+
+      }
+
+
+      .login-form {
+        margin-top: auto;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
       
+      .login-form h2 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        font-size: 28px;
+        text-align: center;
+      }
+      
+      .login-content {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .input-text label {
+        display: block;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      
+      .input-text input[type="text"],
+      .input-text input[type="password"] {
+        font-size: 1.5rem;
+        border-radius: 5px;
+        border: 1px solid #cccccc;
+        width: 100%;
+        margin-top: 2%;
+        margin-bottom: 2%;
+      }
+      
+      .input-text input[type="text"]:focus,
+      .input-text input[type="password"]:focus {
+        outline: none;
+        border-color: #333;
+      }
+      
+      button {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 5px;
+        background-color: #333;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      
+      button:hover {
+        background-color: #555;
+      }

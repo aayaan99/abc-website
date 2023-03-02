@@ -1,106 +1,51 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+  <script>
+    function checkLogin() {
+      const username = document.querySelector('#username').value;
+      const password = document.querySelector('#password').value;
 
-    <script>
-        function myFunction() {
-          // get the input values
-          const ceremonyType = document.querySelector('#ceremony-type').value;
-          const ceremonyDate = document.querySelector('#ceremony-date').value;
+      if (username === 'user' && password === 'pass') {
+        window.location.href = 'main.html';
+      } else {
+        alert('Invalid username or password');
+      }
+    }
+  </script>
 
-          if (ceremonyDate && ceremonyType) {
-          
-          // create the confirmation message with ceremony type and date
-          const message = `Request Confirmed for: ${ceremonyType} on ${ceremonyDate}`;
-          
-          // show the confirmation message
-          alert(message);
-          return;
-          }
-
-          // create the confirmation message with ceremony type and date
-          const message = `Please select the date and ceremony type`;
-          
-          // show the confirmation message
-          alert(message);
-
-
-        }
-        </script>
-        
-
-
-</script>
-<title>ABC Church</title>
-<link rel="stylesheet" type="text/css" href="style.css">
+  <title>ABC Church - Sign In</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body>
-	<header>
-    <h1>
-      ABC Church
-    </h1>
-		<nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About Us</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropbtn">Services</a>
-          <ul class="dropdown-content">
-            <li><a href="#">Baptism</a></li>
-            <li><a href="#">Wedding</a></li>
-            <li><a href="#">Funeral</a></li>
-          </ul>
-        </li>
-        <li><a href="#">Events</a></li>
-        <li><a href="#">Contact Us</a></li>
-        <li><a href="#">Sign In</a></li>
-      </ul>
-      
-    </nav>
-	</header>
-	<section class="ceremony-request">
-        <h2>Ceremony Requests</h2>
-        <form id="ceremony-form">
-          <label for="member-info">Name:</label>
-          <input id="member-info" name="memeber-info"></input>
-          <label for="ceremony-type">Ceremony Type:</label>
-          <select id="ceremony-type" name="ceremony-type">
-            <option value="baptism">Baptism</option>
-            <option value="wedding">Wedding</option>
-            <option value="funeral">Funeral</option>
-          </select>
-          <label for="ceremony-date">Desired Date:</label>
-          <input type="date" id="ceremony-date" name="ceremony-date">
-          <label for="ceremony-info">Ceremony Information:</label>
-          <textarea id="ceremony-info" name="ceremony-info"></textarea>
-          <input onclick="myFunction()" type="submit" value="Confirm Appointment">
-        </form>
-      </section>
+  <header class="header-login">
+    <h1>ABC Church</h1>
+  </header>
 
-      <div class="separator">
+    <section class="login-form">
+      <h2>Sign In</h2>
+      <form id="login-form">
 
-      </div>
-      
-	<section class="daily-sermons">
-		<h2>Daily Sermons</h2>
-		<div class="sermon">
-			<h3>Sermon 1</h3>
-			<p class="date">Februaury 10, 2023</p>
-            
-        <iframe src="./Example Sermon 1.pdf" width="80%" height="500"></iframe>
+        <div class="login-content">
+          <div class="input-text">
+            <label for="username">Username:</label>
+            <input id="username" name="username" type="text" required>
 
-		</div>
+            <div class="input-text">
+              <label for="password">Password:</label>
+              <input id="password" name="password" type="password" required>
+            </div>
+          </div>
 
-        <div class="sermon">
-			<h3>Sermon 2</h3>
-			<p class="date">Februaury 13, 2023</p>
-            
-      <iframe src="./Example Sermon 2.pdf" width="80%" height="500"></iframe>	
-		</div>
-		
-	</section>
-	<footer>
-		<p> 2023 ABC Church. All rights reserved.</p>
-	</footer>
+          <button type="button" onclick="checkLogin()">Sign In</button>
+        </div>
+      </form>
+    </section>
+
+
+
 </body>
+
 </html>

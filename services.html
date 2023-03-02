@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ABC Church</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <script>
+    function myFunction() {
+      // get the input values
+      const ceremonyType = document.querySelector('#ceremony-type').value;
+      const ceremonyDate = document.querySelector('#ceremony-date').value;
+      const memberInfo = document.querySelector('#member-info').value;
+      const ceremonyInfo = document.querySelector('#ceremony-info').value;
+    
+      const encodedType = encodeURIComponent(ceremonyType);
+      const encodedDate = encodeURIComponent(ceremonyDate);
+      const url = `ceremony-info.html?type=${encodedType}&date=${encodedDate}`;
+    
+      if (ceremonyDate && ceremonyType) {
+        // create the confirmation message with ceremony type and date
+        const message = `Request Confirmed for: ${ceremonyType} on ${ceremonyDate}`;
+        // show the confirmation message
+        alert(message);
+    
+        const formData = {
+          memberInfo,
+          ceremonyType,
+          ceremonyDate,
+          ceremonyInfo
+        };
+    
+        generateReport(formData);
+        return;
+      }
+    
+      // create the confirmation message with ceremony type and date
+      const message = `Please select the date and ceremony type`;
+      // show the confirmation message
+      alert(message);
+    }
+    
+    function generateReport(formData) {
+      const reportData = `
+        <h1>Ceremony Request Certificate</h1>
+        <p><strong>Member Name:</strong> ${formData.memberInfo}</p>
+        <p><strong>Ceremony Type:</strong> ${formData.ceremonyType}</p>
+        <p><strong>Desired Date:</strong> ${formData.ceremonyDate}</p>
+        <p><strong>Ceremony Information:</strong></p>
+        <p>${formData.ceremonyInfo}</p>
+      `;
+    
+      const reportWindow = window.open('', 'Ceremony Request Certificate', 'width=600,height=400');
+      reportWindow.document.write(reportData);
+    }
+    
+    </script>
+
+</head>
+<body>
+  <header>
+    <h1>ABC Church</h1>
+    <nav>
+      <ul>
+        <li><a href="main.html">Home</a></li>
+        <li><a href="#">Reports</a></li>
+        <li class="dropdown">
+          <a href="services.html" class="dropbtn">Services</a>
+        </li>
+        <li><a href="sermons.html">Sermons</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="member.html">Member Info</a></li>
+        <li><a href="index.html">Sign out</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="ceremony-request">
+    <h2>Ceremony Requests</h2>
+    <form id="ceremony-form">
+      <label for="member-info">Name:</label>
+      <input id="member-info" name="member-info"></input>
+      <label for="ceremony-type">Ceremony Type:</label>
+      <select id="ceremony-type" name="ceremony-type">
+        <option value="baptism">Baptism</option>
+        <option value="wedding">Wedding</option>
+        <option value="funeral">Funeral</option>
+      </select>
+      <label for="ceremony-date">Desired Date:</label>
+      <input type="date" id="ceremony-date" name="ceremony-date">
+      <label for="ceremony-info">Ceremony Information:</label>
+      <textarea id="ceremony-info" name="ceremony-info"></textarea>
+      <input onclick="myFunction()" type="submit" value="Confirm Appointment">
+    </form>
+  </section>
+
+  <div class="separator"></div>
+
+  <footer>
+    <p> 2023 ABC Church. All rights reserved.</p>
+  </footer>
+</body>
+</html>

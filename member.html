@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ABC Church</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <script>
+    function myFunction(event) {
+
+      // get the input values
+      const memberinfo = document.querySelector('#member-info').value;
+      const memberuser = document.querySelector('#member-pass').value;
+      const memberpass = document.querySelector('#member-pass').value;
+
+      
+      if (memberinfo && memberuser && memberpass) {
+      
+      // create the confirmation message with ceremony type and date
+        const message = `Confirmed`;
+        
+        // show the confirmation message
+        alert(message);
+        return;
+      }
+
+      // create the confirmation message with ceremony type and date
+      const message = `Please enter the information`;
+      
+      // show the confirmation message
+      alert(message);
+
+
+    }
+    </script>
+
+</head>
+<body>
+  <header>
+    <h1>ABC Church</h1>
+    <nav>
+      <ul>
+        <li><a href="main.html">Home</a></li>
+        <li><a href="#">Reports</a></li>
+        <li class="dropdown">
+          <a href="services.html" class="dropbtn">Services</a>
+        </li>
+        <li><a href="sermons.html">Sermons</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="member.html">Member Info</a></li>
+        <li><a href="index.html">Sign out</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="member-info">
+    <h2>Member Info</h2>
+    <form id="ceremony-form">
+      <label for="member-info">Name:</label>
+      <input id="member-info" name="member-info"></input>
+      <label for="member-user">Username:</label>
+      <input id="member-user" name="member-info"></input>
+      <label for="member-pass">Password:</label>
+      <input type="password"id="member-pass" name="member-pass">
+      <input onclick="myFunction()" type="submit" value="Confirm">
+    </form>
+  </section>
+
+  <div class="separator"></div>
+
+  <footer>
+    <p> 2023 ABC Church. All rights reserved.</p>
+  </footer>
+</body>
+</html>
