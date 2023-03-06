@@ -7,26 +7,28 @@
   <script>
     function myFunction() {
       // get the input values
-      const ceremonyType = document.querySelector('#ceremony-type').value;
-      const ceremonyDate = document.querySelector('#ceremony-date').value;
-      const memberInfo = document.querySelector('#member-info').value;
-      const ceremonyInfo = document.querySelector('#ceremony-info').value;
+      const member = document.querySelector('#member-info').value;
+      const contribution = document.querySelector('#contribution-info').value;
+      const card = document.querySelector('#card-info').value;
+      const zip = document.querySelector('#zip-info').value;
     
-      const encodedType = encodeURIComponent(ceremonyType);
-      const encodedDate = encodeURIComponent(ceremonyDate);
-      const url = `ceremony-info.html?type=${encodedType}&date=${encodedDate}`;
+      const encodedMember = encodeURIComponent(member);
+      const encodedContribution = encodeURIComponent(contribution);
+      const encodedCard = encodeURIComponent(member);
+      const encodedZip = encodeURIComponent(contribution);
+      const url = `ceremony-info.html?member=${encodedMember}&contribution=${encodedContribution}&card=${encodedCard}&zip=${encodedZip}`;
     
-      if (ceremonyDate && ceremonyType) {
+      if (member && contribution && card && zip) {
         // create the confirmation message with ceremony type and date
-        const message = `Request Confirmed for: ${ceremonyType} on ${ceremonyDate}`;
+        const message = `Request Confirmed for: ${member} with contribution of ${contribution}`;
         // show the confirmation message
         alert(message);
     
         const formData = {
-          memberInfo,
-          ceremonyType,
-          ceremonyDate,
-          ceremonyInfo
+          member,
+          contribution,
+          card,
+          zip
         };
     
         generateReport(formData);
@@ -41,15 +43,12 @@
     
     function generateReport(formData) {
       const reportData = `
-        <h1>Ceremony Request Certificate</h1>
-        <p><strong>Member Name:</strong> ${formData.memberInfo}</p>
-        <p><strong>Ceremony Type:</strong> ${formData.ceremonyType}</p>
-        <p><strong>Desired Date:</strong> ${formData.ceremonyDate}</p>
-        <p><strong>Ceremony Information:</strong></p>
-        <p>${formData.ceremonyInfo}</p>
-      `;
+        <h1>Payment Confirmation</h1>
+        <p><strong>Member Name:</strong> ${formData.member}</p>
+        <p><strong>Amount:</strong> ${formData.contribution}</p>
+        <p><strong>Thank you!</strong></p>`;
     
-      const reportWindow = window.open('', 'Ceremony Request Certificate', 'width=600,height=400');
+      const reportWindow = window.open('', 'Payment Confirmation', 'width=600,height=400');
       reportWindow.document.write(reportData);
     }
     
@@ -77,20 +76,16 @@
   </header>
 
   <section class="ceremony-request">
-    <h2>Ceremony Requests</h2>
+    <h2>Contribution</h2>
     <form id="ceremony-form">
       <label for="member-info">Name:</label>
       <input id="member-info" name="member-info"></input>
-      <label for="ceremony-type">Ceremony Type:</label>
-      <select id="ceremony-type" name="ceremony-type">
-        <option value="baptism">Baptism</option>
-        <option value="wedding">Wedding</option>
-        <option value="funeral">Funeral</option>
-      </select>
-      <label for="ceremony-date">Desired Date:</label>
-      <input type="date" id="ceremony-date" name="ceremony-date">
-      <label for="ceremony-info">Ceremony Information:</label>
-      <textarea id="ceremony-info" name="ceremony-info"></textarea>
+      <label for="contribution-info">Contribution Amount:</label>
+      <input id="contribution-info" name="member-info"></input>
+      <label for="card-info">Card Number:</label>
+      <input id="card-info" name="ceremony-info"></input>
+      <label for="zip-info">Zip Code:</label>
+      <input id="zip-info" name="ceremony-info"></input>
       <input onclick="myFunction()" type="submit" value="Confirm Appointment">
     </form>
   </section>

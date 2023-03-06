@@ -238,4 +238,20 @@
         line-height: 1.5;
         margin-bottom: 20px;
       }
+
+      .calendar-wrapper {
+        position: relative;
+        padding-bottom: 75%; /* This is the aspect ratio of the calendar, adjust as needed */
+        height: 0;
+        overflow: hidden;
+      }
+      .calendar-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      
       
