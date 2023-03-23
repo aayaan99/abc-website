@@ -253,5 +253,31 @@
         height: 100%;
         border: none;
       }
+
+      .reports {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      
+      .reports input[type="submit"] {
+        flex-basis: 48%;
+        background-color: #656565;
+        border: none;
+        color: white;
+        padding: 12px 24px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 0;
+        cursor: pointer;
+        border-radius: 8px;
+      }
+      
+      .reports input[type="submit"]:hover {
+        background-color: #d6d6d6;
+      }
+      
       
       
