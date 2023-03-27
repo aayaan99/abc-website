@@ -18,7 +18,7 @@
       const encodedZip = encodeURIComponent(contribution);
       const url = `ceremony-info.html?member=${encodedMember}&contribution=${encodedContribution}&card=${encodedCard}&zip=${encodedZip}`;
     
-      if (member && contribution && card && zip) {
+      if (member && contribution && card && zip && (card.length == 16)) {
         // create the confirmation message with ceremony type and date
         const message = `Request Confirmed for: ${member} with contribution of ${contribution}`;
         // show the confirmation message
@@ -34,9 +34,17 @@
         generateReport(formData);
         return;
       }
+
+      if (card.length != 16) {
+        // create the confirmation message with ceremony type and date
+        const message = `Incorrect card`;
+        // show the confirmation message
+        alert(message);
+        return;
+      }
     
       // create the confirmation message with ceremony type and date
-      const message = `Please select the date and ceremony type`;
+      const message = `Incorrect info`;
       // show the confirmation message
       alert(message);
     }
@@ -86,7 +94,7 @@
       <input id="card-info" name="ceremony-info">
       <label for="zip-info">Zip Code:</label>
       <input id="zip-info" name="ceremony-info">
-      <input onclick="myFunction()" type="submit" value="Confirm Appointment">
+      <input onclick="myFunction()" type="submit" value="Confirm Payment">
       <input onclick="window.open('https://docs.google.com/document/d/1Dlv4p__AdAn2iVgrM4xry4Yq-HIVzUrDw0YkOHCrHck/edit?usp=sharing', '_blank')" type="submit" value="Generate report">
 
     </form>
