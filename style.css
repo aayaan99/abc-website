@@ -256,11 +256,12 @@
 
       .reports {
         display: flex;
-        flex-wrap: wrap;
+        
         justify-content: space-between;
       }
       
       .reports input[type="submit"] {
+        width: 5%;
         flex-basis: 48%;
         background-color: #656565;
         border: none;
@@ -278,6 +279,21 @@
       .reports input[type="submit"]:hover {
         background-color: #d6d6d6;
       }
+
+.contact-list input {
+  flex-basis: 48%;
+  background-color: #656565;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2%;
+  cursor: pointer;
+  border-radius: 8px;
+}
       
       
       
